@@ -1,21 +1,177 @@
-.contents-body {
-    width: 60%;
-    margin: 0 20% 0 20%;
+@font-face {
+    font-family: 'D2Coding';
+    font-style: normal;
+    font-weight: 400;
+    src: url('D2Coding.woff2') format('x-woff2'),
+         url('D2Coding.woff') format('woff'),
+
+  }
+  @font-face {
+    font-family: 'D2Coding';
+    font-style: normal;
+    font-weight: 700;
+    src: url('D2CodingBold.woff2') format('x-woff2'),
+         url('D2CodingBold.woff') format('woff'),
+  }
+
+* {
+    font-family: 'D2Coding';
+    transform : rotate(0.04deg);
 }
 
+:root {
+    --color-blossom: rgba(255, 192, 203, 0.5);
+    --color-transparent: rgba(0, 0, 0, 0.0);
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto 0 auto;
+}
+
+.greeting__background{
+    /* image size */
+    max-width:100%;
+    height: 1500px;
+    position: relative;
+    background-image : linear-gradient(var(--color-blossom) 0%, var(--color-transparent) 30%, var(--color-transparent) 90%, var(--color-blossom) 100%) , url(../../assets/images/greeting.jpg);
+    /* basic setting for background-image */
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : top;
+}
+
+.greeting__message {
+    position: fixed;
+    left:0;
+    right:0;
+    z-index: 10;
+}
+
+.greeting__title {
+    text-align: center;
+    color: white;
+    font-size: 8vw;
+    text-shadow:5px 5px 5px grey;
+}
+
+.greeting__subtitle{
+    text-align: center;
+    color: white;
+    font-size: 3vw;
+    font-weight:600;
+    text-shadow:1px 1px 1px grey;
+}
+
+.greeting__tag{
+    position : absolute;
+    color:white;
+    font-size: 3vw;
+    font-weight:550;
+    text-shadow:3px 3px 5px pink;
+}
+.greeting__tag--9year{
+    left : 13%;
+    top: 22%;
+    --deg: -8deg;
+    --shakeX: 5px;
+    animation: shake 4s infinite;
+}
+
+.greeting__tag--start{
+    left : 35%;
+    top: 20%;
+    --deg: 10deg;
+    --shakeX: -5px;
+    animation: shake 4s infinite;
+}
+
+.greeting__tag--spring{
+    right : 25%;
+    top: 18%;
+    --deg: -8deg;
+    --shakeX: 5px;
+    animation: shake 4s infinite;
+}
+
+.greeting__tag--blossom{
+    right : 13%;
+    top: 25%;
+    --deg: 8deg;
+    --shakeX: -8px;
+    animation: shake 4s infinite;
+}
+
+@keyframes shake{
+    0% {
+        transform: rotate(var(--deg, 0deg)) translateX(calc(-1*var(--shakeX, 5px)));
+    }
+    25% {
+        transform: rotate(var(--deg, 0deg)) translateX(calc(1*var(--shakeX, 5px)));
+    }
+    50% {
+        transform: rotate(var(--deg, 0deg)) translateX(calc(-1*var(--shakeX, 5px)));
+    }
+    75% {
+        transform: rotate(var(--deg, 0deg)) translateX(calc(1*var(--shakeX, 5px)));
+    }
+    100% {
+        transform: rotate(var(--deg, 0deg)) translateX(calc(-1*var(--shakeX, 5px)));
+    }
+}
+
+@keyframes rotate{
+    0% {
+        transform: rotate(calc(-1*var(--deg, 5deg)));
+    }
+    25% {
+        transform: rotate(calc(1*var(--deg, 5deg)));
+    }
+    50% {
+        transform: rotate(calc(-1*var(--deg, 5deg)));
+    }
+    75% {
+        transform: rotate(calc(1*var(--deg, 5deg)));
+    }
+    100% {
+        transform: rotate(calc(-1*var(--deg, 5deg)));
+    }
+}
 
 /* pad */
 @media screen and (max-width : 1200px) { 
-    .contents-body {
+    .container {
         width: 80%;
-        margin: 0 10% 0 10%;
+        margin: 0 auto 0 auto;
+    }
+    .greeting__background{
+        /* image size */
+        width:100%;
+        height: 1300px;
+    }
+    .greeting__title {
+        font-size: 10vw;
+    }
+    .greeting__subtitle{
+        font-size: 4vw;
     }
 } 
 
 /* mobile */
 @media screen and (max-width : 768px) { 
-    .contents-body {
-        width: 100%;
-        margin: 0 0 0 0;
+    .container {
+        width: 98%;
+        margin: 0 auto 0 auto;
+    }
+    .greeting__background{
+        /* image size */
+        width:100%;
+        height: 800px;
+    }
+    .greeting__title {
+        font-size: 12vw;
+    }
+    .greeting__subtitle{
+        font-size: 5vw;
     }
 }
