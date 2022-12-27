@@ -18,4 +18,21 @@ $(function(){
             console.log(doc.data())
         })
     })
+
+    // greeting : typing
+    var typing = document.getElementById('greeting__typing');;
+    var typewriter = new Typewriter(typing, {
+        loop: false,
+    });
+
+    typewriter
+        .changeDelay(180)
+        .changeDeleteSpeed(90)
+        .pauseFor(1000)
+        .typeString('박건구 <small>그리고</small> 최문정')
+        .pauseFor(1000)
+        .deleteChars(7)
+        //.typeString('<br/>')
+        .typeString(' <strong style="color:red;">♥</strong> 최문정')
+        .pauseFor(1500).start();
 });
