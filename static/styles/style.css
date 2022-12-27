@@ -1,0 +1,21 @@
+.contents-body {
+    width: 60%;
+    margin: 0 20% 0 20%;
+}
+
+
+/* pad */
+@media screen and (max-width : 1200px) { 
+    .contents-body {
+        width: 80%;
+        margin: 0 10% 0 10%;
+    }
+} 
+
+/* mobile */
+@media screen and (max-width : 768px) { 
+    .contents-body {
+        width: 100%;
+        margin: 0 0 0 0;
+    }
+}
