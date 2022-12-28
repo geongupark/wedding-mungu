@@ -93,7 +93,7 @@ div {
 
 .greeting__tag{
     position : absolute;
-    width:15%;
+    width:17%;
 }
 .greeting__tag--9year{
     left : 13%;
@@ -196,13 +196,13 @@ div {
 
 /* contact us */
 .to__main {
-    width:35%;
+    width:45%;
 }
 .icon__call{
-    width:10%;
+    width:12%;
 }
 .icon__sms {
-    width:10%;
+    width:12%;
 }
 
 /* contact parents */
@@ -221,7 +221,7 @@ div {
 }
 
 .to__parent {
-    width: 60%;
+    width: 85%;
     margin:0 auto 0 auto;
     display:block;
 }
@@ -229,15 +229,15 @@ div {
     text-align: center;
 }
 .to__name {
-    width:50%;
+    width:70%;
     margin:0 auto 0 auto;
     display:block;
 }
 .icon__call--parent {
-    width:25%;
+    width:30%;
 }
 .icon__sms--parent {
-    width:25%;
+    width:30%;
 }
 /* pad */
 @media screen and (max-width : 1200px) { 
