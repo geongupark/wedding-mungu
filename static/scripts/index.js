@@ -28,11 +28,22 @@ $(function(){
     typewriter
         .changeDelay(180)
         .changeDeleteSpeed(90)
-        .pauseFor(1000)
+        .pauseFor(300)
         .typeString('박건구 <small>그리고</small> 최문정')
         .pauseFor(1000)
         .deleteChars(7)
         //.typeString('<br/>')
-        .typeString(' <strong style="color:red;">♥</strong> 최문정')
+        .typeString(' <strong style="color:red;">❤️</strong> 최문정')
         .pauseFor(1500).start();
+
+    // invitation : typing
+    // var typing = document.getElementById('invitation__typing');;
+    // var typewriter = new Typewriter(typing, {
+    //     loop: false,
+    // });
+    // typewriter
+    //     .changeDelay(100)
+    //     .pauseFor(1000)
+    //     .typeString('어느 봄날에 만나<br/>여느 봄날을 함께 보내고<br/>모든 봄날을 함께 보내려 합니다<br/><br/>그 시작의 자리에<br/>소중한 걸음으로 축복해주세요')
+    //     .pauseFor(1500).start();
 });

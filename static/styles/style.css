@@ -4,23 +4,35 @@
     font-weight: 400;
     src: url('D2Coding.woff2') format('x-woff2'),
          url('D2Coding.woff') format('woff'),
+}
 
-  }
-  @font-face {
+@font-face {
     font-family: 'D2Coding';
     font-style: normal;
     font-weight: 700;
     src: url('D2CodingBold.woff2') format('x-woff2'),
-         url('D2CodingBold.woff') format('woff'),
-  }
+            url('D2CodingBold.woff') format('woff'),
+}
+
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
-    font-family: 'D2Coding';
+    font-family: 'GowunBatang-Regular';
     transform : rotate(0.04deg);
+}
+
+div {
+    box-sizing:border-box;
 }
 
 :root {
     --color-blossom: rgba(255, 192, 203, 0.5);
+    --color-dark-blossom: rgba(224, 198, 205, 1);
     --color-transparent: rgba(0, 0, 0, 0.0);
 }
 
@@ -28,13 +40,19 @@
     width: 60%;
     margin: 0 auto 0 auto;
 }
-
+.float__left {
+    float:left;
+}
+.float__right {
+    float:right;
+}
+/* Greetinig */
 .greeting__background{
     /* image size */
-    max-width:100%;
+    width:100%;
     height: 1500px;
     position: relative;
-    background-image : linear-gradient(var(--color-blossom) 0%, var(--color-transparent) 30%, var(--color-transparent) 90%, var(--color-blossom) 100%) , url(../../assets/images/greeting_normal.jpg);
+    background-image : linear-gradient(var(--color-blossom) 0%, var(--color-transparent) 30%, var(--color-transparent) 90%, var(--color-blossom) 100%) , url(../../assets/images/greeting/greeting_normal.jpg);
     /* basic setting for background-image */
     background-size : cover;
     background-repeat : no-repeat;
@@ -42,37 +60,44 @@
 }
 
 .greeting__message {
-    position: fixed;
+    position:fixed;
     left:0;
     right:0;
-    z-index: 10;
+    z-index:10;
 }
 
 .greeting__title {
+    width:100%;
+}
+
+.greeting__name{
     text-align: center;
-    color: white;
-    font-size: 8vw;
-    text-shadow:5px 5px 5px grey;
+    color: rgba(255, 255, 255, 0.952);
+    font-size: 3vw;
+    font-weight:600;
+    text-shadow:2px 2px 2px grey;
+    /* centering */
+    left : 0;
+    right : 0; 
+    margin: none auto none auto;
 }
 
 .greeting__subtitle{
-    text-align: center;
-    color: white;
-    font-size: 3vw;
-    font-weight:600;
-    text-shadow:1px 1px 1px grey;
+    position: absolute;
+    bottom: 2%;
+    /* centering */
+    left : 0;
+    right : 0; 
+    margin: none auto none auto;
 }
 
 .greeting__tag{
     position : absolute;
-    color:white;
-    font-size: 3vw;
-    font-weight:550;
-    text-shadow:3px 3px 5px pink;
+    width:15%;
 }
 .greeting__tag--9year{
     left : 13%;
-    top: 22%;
+    top: 23%;
     --deg: -8deg;
     --shakeX: 5px;
     animation: shake 4s infinite;
@@ -80,7 +105,7 @@
 
 .greeting__tag--start{
     left : 35%;
-    top: 20%;
+    top: 21%;
     --deg: 10deg;
     --shakeX: -5px;
     animation: shake 4s infinite;
@@ -88,7 +113,7 @@
 
 .greeting__tag--spring{
     right : 25%;
-    top: 18%;
+    top: 20%;
     --deg: -8deg;
     --shakeX: 5px;
     animation: shake 4s infinite;
@@ -96,7 +121,7 @@
 
 .greeting__tag--blossom{
     right : 13%;
-    top: 25%;
+    top: 27%;
     --deg: 8deg;
     --shakeX: -8px;
     animation: shake 4s infinite;
@@ -138,22 +163,93 @@
     }
 }
 
+/* Invitation */
+.invitation__background{
+    /* image size */
+    position:relative;
+    width:100%;
+    background-image : linear-gradient(var(--color-dark-blossom) 0%, white 20%, white 80%);
+    padding:20% 0 15% 0;
+}
+
+.page__title--blossom{
+    margin:0 0 0 3%;
+    width: 7%;
+    float:left;
+}
+.page__title{
+    width: 90%;
+    float:right;
+}
+
+.invitation__message {
+    margin:15% 0 15% 0;
+    width: 100%;
+}
+
+
+/* contact */
+.contact__husband, .contact__wife{
+    text-align: center;
+}
+
+
+/* contact us */
+.to__main {
+    width:35%;
+}
+.icon__call{
+    width:10%;
+}
+.icon__sms {
+    width:10%;
+}
+
+/* contact parents */
+.contact_parents {
+    margin: 10% 0 0 0;
+}
+
+.contact__parent--husband, .contact__parent--wife {
+    width: 50%;
+}
+.contact__parent--husband {
+    padding: 0 0 0 10%;
+}
+.contact__parent--wife {
+    padding: 0 10% 0 0 ;
+}
+
+.to__parent {
+    width: 60%;
+    margin:0 auto 0 auto;
+    display:block;
+}
+.to__father, .to__mother {
+    text-align: center;
+}
+.to__name {
+    width:50%;
+    margin:0 auto 0 auto;
+    display:block;
+}
+.icon__call--parent {
+    width:25%;
+}
+.icon__sms--parent {
+    width:25%;
+}
 /* pad */
 @media screen and (max-width : 1200px) { 
     .container {
         width: 80%;
         margin: 0 auto 0 auto;
     }
+    /* pad > greeting */
     .greeting__background{
         /* image size */
         width:100%;
         height: 1300px;
-    }
-    .greeting__title {
-        font-size: 10vw;
-    }
-    .greeting__subtitle{
-        font-size: 4vw;
     }
 } 
 
@@ -163,15 +259,10 @@
         width: 98%;
         margin: 0 auto 0 auto;
     }
+    /* mobile > greeting */
     .greeting__background{
         /* image size */
         width:100%;
         height: 800px;
-    }
-    .greeting__title {
-        font-size: 12vw;
-    }
-    .greeting__subtitle{
-        font-size: 5vw;
     }
 }
