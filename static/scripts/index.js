@@ -36,14 +36,18 @@ $(function(){
         .typeString(' <strong style="color:red;">❤️</strong> 최문정')
         .pauseFor(1500).start();
 
-    // invitation : typing
-    // var typing = document.getElementById('invitation__typing');;
-    // var typewriter = new Typewriter(typing, {
-    //     loop: false,
-    // });
-    // typewriter
-    //     .changeDelay(100)
-    //     .pauseFor(1000)
-    //     .typeString('어느 봄날에 만나<br/>여느 봄날을 함께 보내고<br/>모든 봄날을 함께 보내려 합니다<br/><br/>그 시작의 자리에<br/>소중한 걸음으로 축복해주세요')
-    //     .pauseFor(1500).start();
+    // gallery : carousel
+    $('#imageGallery').lightSlider({
+        gallery:true,
+        item:1,
+        loop:true,
+        thumbItem:6,
+        enableDrag: true,
+        currentPagerPosition:'right',
+        onSliderLoad: function(el) {
+            el.lightGallery({
+                selector: '#imageGallery .lslide'
+            });
+        }   
+    });  
 });
