@@ -49,5 +49,20 @@ $(function(){
                 selector: '#imageGallery .lslide'
             });
         }   
-    });  
+    });
+    // location : kakao map
+    var latitude = 37.286436720150924;
+    var longitude = 127.03586061664267;
+    var container = document.getElementById('map'); // DOM reference for the map
+    var options = { // map option
+        center: new kakao.maps.LatLng(latitude, longitude), //center of the map.
+        level: 4 // level of the map
+    };
+
+    var map = new kakao.maps.Map(container, options); // Return map object
+    var markerPosition  = new kakao.maps.LatLng(latitude, longitude); 
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+    marker.setMap(map);
 });
