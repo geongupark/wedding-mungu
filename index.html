@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/styles/normalize.css" rel="stylesheet"></link>
     <link href="static/styles/style.css" rel="stylesheet"></link>
+    <link type="text/css" rel="stylesheet" href="static/lightslider/css/lightslider.css" />
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
@@ -16,6 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="static/scripts/index.js"></script>
+    <script src="static/lightslider/js/lightslider.js"></script>
 </head>
 <body>
     <div class="container">
@@ -51,45 +53,78 @@
                 </div>
                 <div class="contact__wife">
                     <img class="to__main" src="./assets/images/invitation/to_wife.png">
-                    <img class="icon__call" src="./assets/images/invitation/call_pink.png">
-                    <img class="icon__sms" src="./assets/images/invitation/sms_pink.png">
+                    <a href="tel:01099051213"><img class="icon__call" src="./assets/images/invitation/call_pink.png"></a>
+                    <a href="sms:01099051213"><img class="icon__sms" src="./assets/images/invitation/sms_pink.png"></a>
                 </div>
                 <div class="contact_parents">
                     <div class="contact__parent--husband float__left">
                         <img class="to__parent" src="./assets/images/invitation/to_husband_parent.png">
                         <div class="to__father">
                             <img class="to__name" src="./assets/images/invitation/to_husband_father.png">
-                            <img class="icon__call--parent" src="./assets/images/invitation/call_blue.png">
-                            <img class="icon__sms--parent" src="./assets/images/invitation/sms_blue.png">
+                            <a href="tel:01048085283"><img class="icon__call--parent" src="./assets/images/invitation/call_blue.png"></a>
+                            <a href="sms:01048085283"><img class="icon__sms--parent" src="./assets/images/invitation/sms_blue.png"></a>
                         </div>
                         <div class="to__mother">
                             <img class="to__name" src="./assets/images/invitation/to_husband_mother.png">
-                            <img class="icon__call--parent" src="./assets/images/invitation/call_blue.png">
-                            <img class="icon__sms--parent" src="./assets/images/invitation/sms_blue.png">
+                            <a href="tel:01024845283"><img class="icon__call--parent" src="./assets/images/invitation/call_blue.png"></a>
+                            <a href="sms:01024845283"><img class="icon__sms--parent" src="./assets/images/invitation/sms_blue.png"></a>
                         </div>
                     </div>
                     <div class="contact__parent--wife float__right">
                         <img class="to__parent" src="./assets/images/invitation/to_wife_parent.png">
                         <div class="to__father">
                             <img class="to__name" src="./assets/images/invitation/to_wife_father.png">
-                            <img class="icon__call--parent" src="./assets/images/invitation/call_pink.png">
-                            <img class="icon__sms--parent" src="./assets/images/invitation/sms_pink.png">
+                            <a href="tel:01022049619"><img class="icon__call--parent" src="./assets/images/invitation/call_pink.png"></a>
+                            <a href="sms:01022049619"><img class="icon__sms--parent" src="./assets/images/invitation/sms_pink.png"></a>
                         </div>
                         <div class="to__mother">
                             <img class="to__name" src="./assets/images/invitation/to_wife_mother.png">
-                            <img class="icon__call--parent" src="./assets/images/invitation/call_pink.png">
-                            <img class="icon__sms--parent" src="./assets/images/invitation/sms_pink.png">
+                            <a href="tel:01066770466"><img class="icon__call--parent" src="./assets/images/invitation/call_pink.png"></a>
+                            <a href="sms:01066770466"><img class="icon__sms--parent" src="./assets/images/invitation/sms_pink.png"></a>
                         </div>
                     </div>
                     <div style="clear:both;"></div>
                 </div>
             </div>
         </div>
-        <div class="phone">
-
-        </div>
         <div class="gallery">
-
+            <div class="gallery__title">
+                <img class="page__title--blossom" src="./assets/images/common/flower_blossom.png">
+                <img class="page__title" src="./assets/images/gallery/gallery_title.png">
+                <div style="clear:both;"></div>
+            </div>
+            <ul id="imageGallery">
+                <li data-thumb="./assets/images/gallery/b01.jpg" data-src="./assets/images/gallery/b01.jpg">
+                    <img src="./assets/images/gallery/b01.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/b02.jpg" data-src="./assets/images/gallery/b02.jpg">
+                    <img src="./assets/images/gallery/b02.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/b03.jpg" data-src="./assets/images/gallery/b03.jpg">
+                    <img src="./assets/images/gallery/b03.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/b04.jpg" data-src="./assets/images/gallery/b04.jpg">
+                    <img src="./assets/images/gallery/b04.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/w01.jpg" data-src="./assets/images/gallery/w01.jpg">
+                    <img src="./assets/images/gallery/w01.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/w02.jpg" data-src="./assets/images/gallery/w02.jpg">
+                    <img src="./assets/images/gallery/w02.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/w03.jpg" data-src="./assets/images/gallery/w03.jpg">
+                    <img src="./assets/images/gallery/w03.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/w04.jpg" data-src="./assets/images/gallery/w04.jpg">
+                    <img src="./assets/images/gallery/w04.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/w05.jpg" data-src="./assets/images/gallery/w05.jpg">
+                    <img src="./assets/images/gallery/w05.jpg" />
+                </li>
+                <li data-thumb="./assets/images/gallery/w06.jpg" data-src="./assets/images/gallery/w06.jpg">
+                    <img src="./assets/images/gallery/w06.jpg" />
+                </li>
+            </ul> 
         </div>
         <div class="location">
 

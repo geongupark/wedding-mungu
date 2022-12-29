@@ -22,7 +22,7 @@
 }
 
 * {
-    font-family: 'GowunBatang-Regular';
+    font-family: 'D2Coding';
     transform : rotate(0.04deg);
 }
 
@@ -93,7 +93,7 @@ div {
 
 .greeting__tag{
     position : absolute;
-    width:15%;
+    width:17%;
 }
 .greeting__tag--9year{
     left : 13%;
@@ -196,13 +196,13 @@ div {
 
 /* contact us */
 .to__main {
-    width:35%;
+    width:45%;
 }
 .icon__call{
-    width:10%;
+    width:12%;
 }
 .icon__sms {
-    width:10%;
+    width:12%;
 }
 
 /* contact parents */
@@ -221,7 +221,7 @@ div {
 }
 
 .to__parent {
-    width: 60%;
+    width: 85%;
     margin:0 auto 0 auto;
     display:block;
 }
@@ -229,16 +229,65 @@ div {
     text-align: center;
 }
 .to__name {
-    width:50%;
+    width:70%;
     margin:0 auto 0 auto;
     display:block;
 }
 .icon__call--parent {
-    width:25%;
+    width:30%;
 }
 .icon__sms--parent {
-    width:25%;
+    width:30%;
 }
+
+/* gallery : customize the carousel (lightslider)*/
+.gallery__title {
+    margin: 10% 0 0 0;
+}
+#imageGallery, #imageGallery li {
+    height: 700px !important;
+}
+
+#imageGallery img {
+    padding:0 5px 0 5px;
+    height:inherit;
+    width:100%;
+    object-fit: contain;
+}
+.lSGallery, .lSGallery li {
+    height: 140px !important;
+}
+.lSGallery li {
+    overflow:hidden;
+    margin:0 auto;
+}
+
+.lSGallery img {
+    width:100%;
+    height:100% !important;
+    object-fit:cover;
+}
+
+.lSAction > a {
+    margin-top: -40% !important;
+    animation: darklight 3s infinite;
+}
+
+@keyframes darklight{
+    0% {
+        opacity: 0.3;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
 /* pad */
 @media screen and (max-width : 1200px) { 
     .container {
@@ -250,6 +299,15 @@ div {
         /* image size */
         width:100%;
         height: 1300px;
+    }
+    .greeting__name {
+        font-size: 4vw;
+    }
+    #imageGallery, #imageGallery li {
+        height: 600px !important;
+    }
+    .lSGallery, .lSGallery li {
+        height: 120px !important;
     }
 } 
 
@@ -264,5 +322,14 @@ div {
         /* image size */
         width:100%;
         height: 800px;
+    }
+    .greeting__name {
+        font-size: 5vw;
+    }
+    #imageGallery, #imageGallery li {
+        height: 400px !important;
+    }
+    .lSGallery, .lSGallery li {
+        height: 90px !important;
     }
 }
