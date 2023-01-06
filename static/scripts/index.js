@@ -65,4 +65,70 @@ $(function(){
         position: markerPosition
     });
     marker.setMap(map);
+    
+    // account modal, clipboard.min.js
+    function modalToggle(modal){
+        $(modal).toggleClass("show");
+        $("body").toggleClass("prevent__scroll");
+    }
+    var selectorModalAccountHusband = "#modal__account--husband";
+    var selectorModalAccountWife = "#modal__account--wife";
+    
+    $(".husband__account").on("click",function(){
+        modalToggle(selectorModalAccountHusband);
+    });
+
+    $(".wife__account").on("click",function(){
+        modalToggle(selectorModalAccountWife);
+    });
+
+    $(`${selectorModalAccountHusband} button`).on("click",function(){
+        modalToggle(selectorModalAccountHusband);
+    });
+
+    $(`${selectorModalAccountWife} button`).on("click",function(){
+        modalToggle(selectorModalAccountWife);
+    });
+
+    $(selectorModalAccountHusband).on("click", function(e){
+        if($(e.target).hasClass("black-bg")) {
+            modalToggle(selectorModalAccountHusband);
+        }
+    });
+
+    $(selectorModalAccountWife).on("click", function(e){
+        if($(e.target).hasClass("black-bg")) {
+            modalToggle(selectorModalAccountWife);
+        }
+    });
+
+    $(window).on("keyup", function(e){
+        if($(selectorModalAccountHusband).hasClass("show") && e.key === "Escape") {
+            modalToggle(selectorModalAccountHusband);
+        }
+        if($(selectorModalAccountWife).hasClass("show") && e.key === "Escape") {
+            modalToggle(selectorModalAccountWife);
+        }
+    });
+
+    function runClipBoard(copySelector){
+        var clipboard = new ClipboardJS(copySelector); 
+        clipboard.on('success', function() {       // 복사에 성공했을 때
+            $(copySelector).toggleClass("display__none");
+            $(copySelector).next().toggleClass("display__none");
+            setTimeout(function(){
+                $(copySelector).toggleClass("display__none");
+                $(copySelector).next().toggleClass("display__none");
+            }, 1000)
+        });
+        clipboard.on('error', function() {         // 복사에 실패했을 때
+        });
+    }
+
+    runClipBoard("#husband__husband--copy");
+    runClipBoard("#husband__father--copy");
+    runClipBoard("#husband__mother--copy");
+    runClipBoard("#wife__wife--copy");
+    runClipBoard("#wife__father--copy");
+    runClipBoard("#wife__mother--copy");
 });
