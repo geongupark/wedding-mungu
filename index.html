@@ -16,11 +16,89 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
     <script src="static/scripts/index.js"></script>
     <script src="static/lightslider/js/lightslider.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=777f1cdaebe0e1856383da5ead561eed"></script>
 </head>
 <body>
+    <!-- Account Modal -->
+    <div class="black-bg" id="modal__account--husband">
+        <div class="white-bg">
+            <div class="account__person">
+                <div>
+                    <img class="account__owner" src="./assets/images/account/husband_name.png">
+                </div>
+                <div>
+                    <img class="account__num float__left" src="./assets/images/account/husband_account_num.png">
+                    <img id="husband__husband--copy" class="account__copy float__right" data-clipboard-text="632-20-179273" src="./assets/images/account/copy_before.png">
+                    <img class="account__copy float__right display__none" src="./assets/images/account/copy_after.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div class="account__person">
+                <div>
+                    <img class="account__owner" src="./assets/images/account/husband_name.png">
+                </div>
+                <div>
+                    <img class="account__num float__left" src="./assets/images/account/husband_account_num.png">
+                    <img id="husband__father--copy" class="account__copy float__right" data-clipboard-text="632-20-179273" src="./assets/images/account/copy_before.png">
+                    <img class="account__copy float__right display__none" src="./assets/images/account/copy_after.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div class="account__person">
+                <div>
+                    <img class="account__owner" src="./assets/images/account/husband_name.png">
+                </div>
+                <div>
+                    <img class="account__num float__left" src="./assets/images/account/husband_account_num.png">
+                    <img id="husband__mother--copy" class="account__copy float__right" data-clipboard-text="632-20-179273" src="./assets/images/account/copy_before.png">
+                    <img class="account__copy float__right display__none" src="./assets/images/account/copy_after.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <button class="btn btn-close"></button>
+        </div>
+    </div>
+    <div class="black-bg" id="modal__account--wife">
+        <div class="white-bg">
+            <div class="account__person">
+                <div>
+                    <img class="account__owner" src="./assets/images/account/wife_name.png">
+                </div>
+                <div>
+                    <img class="account__num float__left" src="./assets/images/account/husband_account_num.png">
+                    <img id="wife__wife--copy" class="account__copy float__right" data-clipboard-text="632-20-179273" src="./assets/images/account/copy_before.png">
+                    <img class="account__copy float__right display__none" src="./assets/images/account/copy_after.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div class="account__person">
+                <div>
+                    <img class="account__owner" src="./assets/images/account/wife_name.png">
+                </div>
+                <div>
+                    <img class="account__num float__left" src="./assets/images/account/husband_account_num.png">
+                    <img id="wife__father--copy" class="account__copy float__right" data-clipboard-text="632-20-179273" src="./assets/images/account/copy_before.png">
+                    <img class="account__copy float__right display__none" src="./assets/images/account/copy_after.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div class="account__person">
+                <div>
+                    <img class="account__owner" src="./assets/images/account/wife_name.png">
+                </div>
+                <div>
+                    <img class="account__num float__left" src="./assets/images/account/husband_account_num.png">
+                    <img id="wife__mother--copy" class="account__copy float__right" data-clipboard-text="632-20-179273" src="./assets/images/account/copy_before.png">
+                    <img class="account__copy float__right display__none" src="./assets/images/account/copy_after.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <button class="btn btn-close"></button>
+        </div>
+    </div>
     <div class="container">
         <div class="greeting">
             <div class="greeting__background">
@@ -96,38 +174,40 @@
                 <img class="page__title" src="./assets/images/gallery/gallery_title.png">
                 <div style="clear:both;"></div>
             </div>
-            <ul id="imageGallery">
-                <li data-thumb="./assets/images/gallery/b01.jpg" data-src="./assets/images/gallery/b01.jpg">
-                    <img src="./assets/images/gallery/b01.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/b02.jpg" data-src="./assets/images/gallery/b02.jpg">
-                    <img src="./assets/images/gallery/b02.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/b03.jpg" data-src="./assets/images/gallery/b03.jpg">
-                    <img src="./assets/images/gallery/b03.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/b04.jpg" data-src="./assets/images/gallery/b04.jpg">
-                    <img src="./assets/images/gallery/b04.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/w01.jpg" data-src="./assets/images/gallery/w01.jpg">
-                    <img src="./assets/images/gallery/w01.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/w02.jpg" data-src="./assets/images/gallery/w02.jpg">
-                    <img src="./assets/images/gallery/w02.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/w03.jpg" data-src="./assets/images/gallery/w03.jpg">
-                    <img src="./assets/images/gallery/w03.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/w04.jpg" data-src="./assets/images/gallery/w04.jpg">
-                    <img src="./assets/images/gallery/w04.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/w05.jpg" data-src="./assets/images/gallery/w05.jpg">
-                    <img src="./assets/images/gallery/w05.jpg" />
-                </li>
-                <li data-thumb="./assets/images/gallery/w06.jpg" data-src="./assets/images/gallery/w06.jpg">
-                    <img src="./assets/images/gallery/w06.jpg" />
-                </li>
-            </ul> 
+            <div class="gallery__background">
+                <ul id="imageGallery">
+                    <li data-thumb="./assets/images/gallery/b01.jpg" data-src="./assets/images/gallery/b01.jpg">
+                        <img src="./assets/images/gallery/b01.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/b02.jpg" data-src="./assets/images/gallery/b02.jpg">
+                        <img src="./assets/images/gallery/b02.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/b03.jpg" data-src="./assets/images/gallery/b03.jpg">
+                        <img src="./assets/images/gallery/b03.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/b04.jpg" data-src="./assets/images/gallery/b04.jpg">
+                        <img src="./assets/images/gallery/b04.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/w01.jpg" data-src="./assets/images/gallery/w01.jpg">
+                        <img src="./assets/images/gallery/w01.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/w02.jpg" data-src="./assets/images/gallery/w02.jpg">
+                        <img src="./assets/images/gallery/w02.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/w03.jpg" data-src="./assets/images/gallery/w03.jpg">
+                        <img src="./assets/images/gallery/w03.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/w04.jpg" data-src="./assets/images/gallery/w04.jpg">
+                        <img src="./assets/images/gallery/w04.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/w05.jpg" data-src="./assets/images/gallery/w05.jpg">
+                        <img src="./assets/images/gallery/w05.jpg" />
+                    </li>
+                    <li data-thumb="./assets/images/gallery/w06.jpg" data-src="./assets/images/gallery/w06.jpg">
+                        <img src="./assets/images/gallery/w06.jpg" />
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="location">
             <div class="location__title">
@@ -135,7 +215,7 @@
                 <img class="page__title" src="./assets/images/location/location_title.png">
                 <div style="clear:both;"></div>
             </div>
-            <div class="location_background">
+            <div class="location__background">
                 <div id="map" class="location__map"></div>
                 <div class="location__site--map">
                     <a href="https://map.kakao.com/link/map/WI%EC%BB%A8%EB%B2%A4%EC%85%98,37.286436720150924,127.03586061664267" target='_blank'><img class="location__kakao" src="./assets/images/location/kakao_map.png"></a>
@@ -148,10 +228,24 @@
                 <img class="location__transport" src="./assets/images/location/by_shutle.png">
                 <img class="location__transport" src="./assets/images/location/by_bus.png">
             </div>
-            
         </div>
+        
         <div class="account">
-
+            <div class="account__title">
+                <img class="page__title--blossom" src="./assets/images/common/flower_blossom.png">
+                <img class="page__title" src="./assets/images/account/account_title.png">
+                <div style="clear:both;"></div>
+            </div>
+            <div class="account__background">
+                <div class="width__var center__margin" style="margin-bottom:10%;--w:100%">
+                    <img class="width__var" src="./assets/images/account/account_message.png">
+                </div>
+                <div class="width__var center__margin" style="--w:90%">
+                    <img class="husband__account float__left" src="./assets/images/account/husband_account.png">
+                    <img class="wife__account float__right" src="./assets/images/account/wife_account.png">
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
         </div>
         <div class="message">
 
