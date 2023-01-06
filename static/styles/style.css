@@ -398,7 +398,7 @@ div {
     position : fixed;
     background : rgba(0,0,0,0.5);
     z-index : 1000;
-    padding: 50px 0;
+    padding-top: 50px;
     justify-content:center;
     /* animation */
     visibility: hidden;
@@ -475,6 +475,10 @@ div {
         height: 300px;
     }
     /* account */
+    .black-bg {
+        padding-top:15%;
+    } 
+
     .account__num {
         width:60%;
     }
@@ -508,6 +512,9 @@ div {
         height: 200px;
     }
     /* account */
+    .black-bg {
+        padding-top:30%;
+    } 
     .white-bg {
         width: 90%;
     } 
