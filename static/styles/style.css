@@ -450,6 +450,40 @@ div {
     top:20px;
 }
 
+/* message */
+.message__title {
+    margin: 10% 0 5% 0;
+}
+.message__background {
+    margin:0 auto 0 auto;
+    width: 90%;
+}
+.message__btn--save {
+    width: 40%;
+    cursor:pointer;
+}
+.message__btn--more {
+    width: 30%;
+    cursor:pointer;
+}
+.message__btn--no {
+    width: 60%;
+}
+#input__comment {
+    resize: none;
+}
+#message__list .card {
+    position:relative;
+}
+#message__list button{
+    position:absolute;
+    right: 10px;
+    top: 10px;
+}
+#message__list .card-body {
+    padding:5% 7%;
+}
+
 /* pad */
 @media screen and (max-width : 1200px) { 
     .container {
