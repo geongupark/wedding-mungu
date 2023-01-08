@@ -1,24 +1,4 @@
 $(function(){
-    const firebaseConfig = {
-        apiKey: "AIzaSyBUeDU3JOpxWwljcBwq51GwHMJuEzyN97E",
-        authDomain: "wedding-mungu.firebaseapp.com",
-        projectId: "wedding-mungu",
-        storageBucket: "wedding-mungu.appspot.com",
-        messagingSenderId: "519306474312",
-        appId: "1:519306474312:web:fb6b1e0dbc036d4251f97d",
-        measurementId: "G-W8B3RRJZSF"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    
-    const db = firebase.firestore();
-    db.collection('comment').get().then((docs)=>{
-        docs.forEach((doc)=>{
-            console.log(doc.data())
-        })
-    })
-
     // greeting : typing
     var typing = document.getElementById('greeting__typing');;
     var typewriter = new Typewriter(typing, {
@@ -131,4 +111,149 @@ $(function(){
     runClipBoard("#wife__wife--copy");
     runClipBoard("#wife__father--copy");
     runClipBoard("#wife__mother--copy");
+
+    // message
+    const firebaseConfig = {
+        apiKey: "AIzaSyBUeDU3JOpxWwljcBwq51GwHMJuEzyN97E",
+        authDomain: "wedding-mungu.firebaseapp.com",
+        projectId: "wedding-mungu",
+        storageBucket: "wedding-mungu.appspot.com",
+        messagingSenderId: "519306474312",
+        appId: "1:519306474312:web:fb6b1e0dbc036d4251f97d",
+        measurementId: "G-W8B3RRJZSF"
+    };
+
+    // message : Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // loading messages
+    var cursor;
+    const postCount = 5;
+    var first = db.collection("comment")
+                      .orderBy("time", "desc")
+                      .limit(postCount);
+
+    function messageBox(id, message, name){
+        var html = `<div id=${id} class="card mb-3">
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>${message}</p>
+                                <footer class="blockquote-footer">${name}</footer>
+                            </blockquote>
+                        </div>
+                        <button class="btn btn-close btn-sm"></button>
+                    </div>`
+        return html;
+    }
+
+    first.get().then((documentSnapshots) => {
+        cursor = documentSnapshots.docs[documentSnapshots.docs.length-1];
+        if(documentSnapshots.docs.length > 0) 
+        {
+            $("#message__list").empty();
+            documentSnapshots.forEach((doc)=>{
+                var html = messageBox(doc.id, doc.data().message, doc.data().name);
+                $("#message__list").append(html);
+                mappingDeleteEvent(doc.id);
+            });
+            $(".message__btn--more").css("display", "inline-block");
+        }
+        else
+        {
+            $(".message__btn--more").css("display", "none");
+        }
+    });
+    
+    // save button
+    $(".message__btn--save").on("click", function (e){
+        if($("#input__nickname").val() == ''){
+            alert("닉네임을 입력해주세요");
+            e.preventDefault();
+            return;
+        }
+        else if($("#input__password").val() == ''){
+            alert("비밀번호를 입력해주세요");
+            e.preventDefault();
+            return;
+        }
+        else if($("#input__password").val().length < 4){
+            alert("비밀번호를 4자 이상 입력해주세요");
+            e.preventDefault();
+            return;
+        }
+        else if(!/^[0-9+]*$/.test($("#input__password").val())){
+            alert("4개 이상의 숫자만 입력해주세요");
+            e.preventDefault();
+            return;
+        }
+        else if($("#input__comment").val().replace(/(\s*)/g,'').length < 1){
+            alert("축하 메시지를 작성해주세요");
+            e.preventDefault();
+            return;
+        }
+
+        db.collection("comment").doc().set({
+            name: $("#input__nickname").val(),
+            message: $("#input__comment").val(),
+            password: $("#input__password").val(),
+            time: firebase.firestore.Timestamp.now()
+        })
+        .then(() => {
+            confirm("축하메시지가 등록되었습니다!");
+            window.location.reload()
+        })
+        .catch((error) => {
+            alert("축하메시지 등록이 실패했습니다 ㅜㅜ");
+            window.location.reload()
+        });
+    });
+    
+    // delete button
+    function mappingDeleteEvent(id){
+        $(`#${id} button`).on("click", function(){
+            var pwd = prompt("비밀번호를 입력해주세요");
+            if(pwd !== null){
+                db.collection("comment").doc(id).get().then((doc)=>{
+                    console.log(doc.data().name);
+                    if(doc.data().password == pwd){
+                        console.log("here");
+                        db.collection("comment").doc(id).delete().then(() => {
+                            confirm("댓글 삭제 완료");
+                            window.location.reload()
+                        }).catch((error) => {
+                            confirm("댓글 삭제 실패");
+                        });
+                    }
+                    else
+                    {
+                        confirm("비밀번호가 일치하지 않습니다.");
+                    }
+                });
+            }
+        });
+    }
+
+    // more button
+    $(".message__btn--more").on("click", function(){
+        console.log(cursor);
+        var next = db.collection("comment")
+                    .orderBy("time", "desc")
+                    .startAfter(cursor)
+                    .limit(postCount);
+        next.get().then((documentSnapshots) => {
+            cursor = documentSnapshots.docs[documentSnapshots.docs.length-1];
+            if(cursor){
+                documentSnapshots.forEach((doc)=>{
+                    var html = messageBox(doc.id, doc.data().message, doc.data().name);
+                    $("#message__list").append(html);
+                    mappingDeleteEvent(doc.id);
+                });
+            }
+            else
+            {
+                $(".message__btn--more").css("display", "none");
+            }  
+        });          
+    });
 });

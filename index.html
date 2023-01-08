@@ -248,7 +248,40 @@
             </div>
         </div>
         <div class="message">
-
+            <div class="message__title">
+                <img class="page__title--blossom" src="./assets/images/common/flower_blossom.png">
+                <img class="page__title" src="./assets/images/message/message_title.png">
+                <div style="clear:both;"></div>
+            </div>
+            <div class="message__background">
+                <div class="message__box mb-5 p-2">
+                    <div class="form-floating mb-3 float__left" style="width:60%;">
+                        <input type="text" class="form-control" id="input__nickname" placeholder="url">
+                        <label for="input__nickname">닉네임</label>
+                    </div>
+                    <div class="form-floating float__right" style="width:35%;">
+                        <input type="password" class="form-control" id="input__password" placeholder="Password">
+                        <label for="input__password">비밀번호</label>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="input__comment"
+                            style="height: 100px"></textarea>
+                        <label for="input__comment">축하 메시지</label>
+                    </div>
+                    <div class="text-center">
+                        <img class="message__btn--save" src="./assets/images/message/save_message.png">
+                    </div>
+                </div>
+                <div class="mycards mb-3" id="message__list">
+                    <div class="text-center">
+                        <img class="message__btn--no" src="./assets/images/message/no_message.png">
+                    </div>
+                </div>
+                <div class="text-center mb-5">
+                    <img class="message__btn--more" src="./assets/images/message/more_message.png">
+                </div>
+            </div>
         </div>
     </div>
     
