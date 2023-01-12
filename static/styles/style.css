@@ -214,11 +214,11 @@ div {
 }
 .page__title--blossom{
     margin:0 0 0 3%;
-    width: 7%;
+    width: 10%;
     float:left;
 }
 .page__title{
-    width: 90%;
+    width: 85%;
     float:right;
 }
 .invitation__message {
@@ -234,13 +234,13 @@ div {
 
 /* contact us */
 .to__main {
-    width:45%;
+    width:60%;
 }
 .icon__call{
-    width:12%;
+    width:15%;
 }
 .icon__sms {
-    width:12%;
+    width:15%;
 }
 
 /* contact parents */
@@ -252,14 +252,14 @@ div {
     width: 50%;
 }
 .contact__parent--husband {
-    padding: 0 0 0 10%;
+    padding: 0 0 0 5%;
 }
 .contact__parent--wife {
-    padding: 0 10% 0 0 ;
+    padding: 0 5% 0 0 ;
 }
 
 .to__parent {
-    width: 85%;
+    width: 100%;
     margin:0 auto 0 auto;
     display:block;
 }
@@ -267,7 +267,7 @@ div {
     text-align: center;
 }
 .to__name {
-    width:70%;
+    width:80%;
     margin:0 auto 0 auto;
     display:block;
 }
@@ -370,8 +370,8 @@ div {
 }
 
 .location__transport {
-    margin: 5% 0 0 0;
-    width: 90%;
+    margin: 10% 0 0 0;
+    width: 100%;
 }
 
 /* account */
@@ -385,7 +385,7 @@ div {
 }
 
 .husband__account, .wife__account {
-    width:45%;
+    width:49%;
     cursor:pointer;
 }
 
@@ -531,7 +531,7 @@ div {
         height: 800px;
     }
     .greeting__name {
-        font-size: 5vw;
+        font-size: 6vw;
     }
     #imageGallery, #imageGallery li {
         height: 400px !important;
