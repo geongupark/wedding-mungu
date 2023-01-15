@@ -71,8 +71,12 @@ div {
     animation:titleEvent 1s ease 1;
 }
 
-.greeting__title:hover {
+.greeting__title:active {
     transform: rotate(2deg);
+}
+
+.greeting__title:visited{
+    transform: rotate(0deg);
 }
 
 .greeting__name{
