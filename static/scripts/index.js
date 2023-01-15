@@ -36,6 +36,10 @@ $(function(){
     var container = document.getElementById('map'); // DOM reference for the map
     var options = { // map option
         center: new kakao.maps.LatLng(latitude, longitude), //center of the map.
+        // draggable: false,
+        // scrollwheel: false,
+        // disableDoubleClick: false,
+        // disableDoubleClickZoom: false,
         level: 4 // level of the map
     };
 
@@ -201,11 +205,11 @@ $(function(){
         })
         .then(() => {
             confirm("축하메시지가 등록되었습니다!");
-            window.location.reload()
+            window.location.reload();
         })
         .catch((error) => {
             alert("축하메시지 등록이 실패했습니다 ㅜㅜ");
-            window.location.reload()
+            window.location.reload();
         });
     });
     
@@ -255,5 +259,31 @@ $(function(){
                 $(".message__btn--more").css("display", "none");
             }  
         });          
+    });
+    
+    // blossom
+    var sakura = new Sakura('.greeting__background',{
+        minSize:25, 
+        maxsize: 35, 
+        fallSpeed:2,
+        delay:900,
+        });
+    var sakura = new Sakura('.invitation__background',{
+        minSize:25, 
+        maxsize: 35, 
+        fallSpeed:2,
+        delay:900,
+        });
+    
+    // confetti
+    document.querySelector(".greeting__title").addEventListener("click", function (e) {
+        party.confetti(this, {
+            count: party.variation.range(20, 40),
+        });
+    });
+    document.querySelector(".message__box").addEventListener("click", function (e) {
+        party.confetti(this, {
+            count: party.variation.range(20, 40),
+        });
     });
 });
