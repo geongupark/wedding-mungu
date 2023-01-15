@@ -68,6 +68,11 @@ div {
 
 .greeting__title {
     width:100%;
+    animation:titleEvent 1s ease 1;
+}
+
+.greeting__title:hover {
+    transform: rotate(2deg);
 }
 
 .greeting__name{
@@ -203,6 +208,50 @@ div {
         transform: rotate(calc(-1*var(--deg, 5deg)));
     }
 }
+/* scroll event*/
+.box{
+}
+
+.page__title--blossom {
+    --deg:15deg;
+    animation:rotate 5s ease-in-out infinite;
+}
+
+@keyframes titleEvent{
+    0% {
+        transform: translateY(-20px);
+    }
+    10% {
+        transform: translateY(-30px);
+    }
+    20% {
+        transform: translateY(-40px);
+    }
+    30% {
+        transform: translateY(-30px);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    60% {
+        transform: translateY(-20px);
+    }
+    70% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(0px);
+    }
+    90% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 
 /* Invitation */
 .invitation__background{
@@ -221,8 +270,9 @@ div {
     width: 85%;
     float:right;
 }
+
 .invitation__message {
-    margin:25% 0 20% 0;
+    margin:25% 0 30% 0;
     width: 100%;
 }
 
@@ -234,7 +284,7 @@ div {
 
 /* contact us */
 .to__main {
-    width:60%;
+    width:53%;
 }
 .icon__call{
     width:15%;
@@ -333,7 +383,7 @@ div {
 
 /* location */
 .location__title{
-    margin:25% 0 7% 0;
+    margin:35% 0 15% 0;
 }
 
 .location__background {
@@ -376,7 +426,7 @@ div {
 
 /* account */
 .account__title {
-    margin: 25% 0 7% 0;
+    margin: 35% 0 15% 0;
 }
 
 .account__background {
@@ -449,7 +499,7 @@ div {
 
 /* message */
 .message__title {
-    margin: 25% 0 10% 0;
+    margin: 35% 0 15% 0;
 }
 .message__background {
     margin:0 auto 0 auto;
