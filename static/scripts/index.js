@@ -7,7 +7,7 @@ $(function(){
 
     typewriter
         .changeDelay(180)
-        .changeDeleteSpeed(90)
+        .changeDeleteSpeed(70)
         .pauseFor(300)
         .typeString('박건구 <small>그리고</small> 최문정')
         .pauseFor(1000)
@@ -21,7 +21,7 @@ $(function(){
         gallery:true,
         item:1,
         loop:true,
-        thumbItem:6,
+        thumbItem:10,
         enableDrag: true,
         currentPagerPosition:'right',
         onSliderLoad: function(el) {
@@ -138,9 +138,10 @@ $(function(){
                       .orderBy("time", "desc")
                       .limit(postCount);
 
-    function messageBox(id, message, name){
+    function messageBox(id, message, name, date){
         var html = `<div id=${id} class="card mb-3">
                         <div class="card-body">
+                            <p><i>${date}</i></p>
                             <blockquote class="blockquote mb-0">
                                 <p>${message}</p>
                                 <footer class="blockquote-footer">${name}</footer>
@@ -157,7 +158,7 @@ $(function(){
         {
             $("#message__list").empty();
             documentSnapshots.forEach((doc)=>{
-                var html = messageBox(doc.id, doc.data().message, doc.data().name);
+                var html = messageBox(doc.id, doc.data().message, doc.data().name, doc.data().time.toDate().toDateString());
                 $("#message__list").append(html);
                 mappingDeleteEvent(doc.id);
             });
@@ -262,17 +263,17 @@ $(function(){
     });
     
     // blossom
-    var sakura = new Sakura('.greeting__background',{
+    let sakura1 = new Sakura('.greeting__background',{
         minSize:25, 
         maxsize: 35, 
         fallSpeed:2,
-        delay:900,
+        delay:850,
         });
-    var sakura = new Sakura('.invitation__background',{
+    let sakura2 = new Sakura('.invitation__background',{
         minSize:25, 
         maxsize: 35, 
         fallSpeed:2,
-        delay:900,
+        delay:850,
         });
     
     // confetti
@@ -286,4 +287,68 @@ $(function(){
             count: party.variation.range(20, 40),
         });
     });
+
+    // scroll event
+    // observerOne
+    let observerOne = new IntersectionObserver((e)=>{
+        e.forEach((b)=>{
+            if(b.isIntersecting){
+                b.target.style.transform = "translateY(0)";
+                b.target.style.opacity = 1;
+            }
+            else
+            {
+                b.target.style.transform = "translateY(50px)";
+                b.target.style.opacity = 0;
+            }
+        })
+    });
+    let pageTitles = document.querySelectorAll(".page__title");
+    pageTitles.forEach((item)=>{
+        observerOne.observe(item);
+    })
+    let contactHusband = document.querySelector(".contact__husband");
+    observerOne.observe(contactHusband);
+    let contactWife = document.querySelector(".contact__wife");
+    observerOne.observe(contactWife);
+    let contactParents = document.querySelector(".contact__parents");
+    observerOne.observe(contactParents);
+    let imageGallery = document.querySelector(".gallery__background");
+    observerOne.observe(imageGallery);
+    let locationMap = document.querySelector(".location__map");
+    observerOne.observe(locationMap);
+    let locationSiteMap = document.querySelector(".location__site--map");
+    observerOne.observe(locationSiteMap);
+    let locationTransports = document.querySelectorAll(".location__transport");
+    locationTransports.forEach((item)=>{
+        observerOne.observe(item);
+    })
+    let cardBody = document.querySelector(".mycards");
+    observerOne.observe(cardBody);
+    
+    // observerTwo
+    let observerTwo = new IntersectionObserver((e)=>{
+        e.forEach((b)=>{
+            if(b.isIntersecting){
+                b.target.style.transform = "translateY(0)";
+                b.target.style.opacity = 1;
+            }
+            else
+            {
+                b.target.style.transform = "translateY(-100px)";
+                b.target.style.opacity = 0;
+            }
+        })
+    });
+    let greetingSubTitle = document.querySelector(".greeting__subtitle");
+    observerTwo.observe(greetingSubTitle);
+    let invitationMessage = document.querySelector(".invitation__message");
+    observerTwo.observe(invitationMessage);
+    let invitationCalendar = document.querySelector(".invitation__calendar");
+    observerTwo.observe(invitationCalendar);
+    let accountBackground = document.querySelector(".account__background");
+    observerTwo.observe(accountBackground);
+    let messageInput = document.querySelector(".message__box");
+    observerTwo.observe(messageInput);
+     
 });
