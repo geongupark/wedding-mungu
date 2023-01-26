@@ -66,16 +66,22 @@ div {
     background-position : top;
 }
 
-.greeting__title {
+.greeting__title, .icon__call {
     width:100%;
     animation:titleEvent 1s ease 1;
 }
 
-.greeting__title:active {
-    transform: rotate(2deg);
+.greeting__message>.greeting__title:active, .icon__call:active,
+.husband__account:active, .wife__account:active,
+.account__copy:active, .message__btn--save:active,
+.message__btn--more:active {
+    transform: rotate(5deg);
 }
 
-.greeting__title:visited{
+.greeting__message>.greeting__title:visited, .icon__call:visited,
+.husband__account:visited, .wife__account:visited,
+.account__copy:visited, .message__btn--save:visited,
+.message__btn--more:visited {
     transform: rotate(0deg);
 }
 
@@ -103,6 +109,13 @@ div {
 .greeting__tag{
     position : absolute;
     width:17%;
+}
+.greeting__tag--click {
+    right : 10%;
+    top: 5%;
+    --deg: -8deg;
+    --shakeX: 5px;
+    animation: darklight_click 5s infinite ease;
 }
 .greeting__tag--9year{
     left : 13%;
@@ -151,6 +164,29 @@ div {
 .greeting__arrow2 {
     bottom: 15%;
     animation: darklight_arrow2 1.3s infinite;
+}
+
+@keyframes darklight_click{
+    0% {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+    5%{
+        transform: translateY(25px);
+    }
+    25% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    35%{
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes darklight_arrow1{
@@ -213,7 +249,33 @@ div {
     }
 }
 /* scroll event*/
-.box{
+.page__title, .contact__husband,
+.contact__wife, .contact__parents,
+.gallery__background, .location__site--map,
+.location__map, .location__transport, .mycards {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all ease 1s;
+}
+
+.contact__husband, .contact__wife, .contact__parents, .gallery__background {
+    transition: all ease 3s;
+}
+
+.gallery__background {
+    transform: translateY(200px);
+}
+
+.greeting__subtitle, .account__background, .message__box {
+    transform:translateY(-50px);
+    opacity: 0;
+    transition: all ease 2s;
+}
+
+.invitation__message, .invitation__calendar{
+    transform:translateY(-100px);
+    opacity: 0;
+    transition: all ease 2s;
 }
 
 .page__title--blossom {
@@ -276,8 +338,13 @@ div {
 }
 
 .invitation__message {
-    margin:25% 0 30% 0;
+    margin:25% 0 20% 0;
     width: 100%;
+}
+
+.invitation__calendar{
+    margin: 0 auto 20% auto;
+    width:95%;
 }
 
 /* contact */
@@ -298,7 +365,7 @@ div {
 }
 
 /* contact parents */
-.contact_parents {
+.contact__parents {
     margin: 10% 0 0 0;
 }
 
