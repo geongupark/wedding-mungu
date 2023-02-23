@@ -99,7 +99,7 @@ div {
 
 .greeting__subtitle{
     position: absolute;
-    bottom: 2%;
+    bottom: 10%;
     /* centering */
     left : 0;
     right : 0; 
@@ -154,7 +154,7 @@ div {
     margin-right : auto;
     left:0;
     right: 0;
-    bottom: 18%;
+    bottom: 23%;
 }
 
 .greeting__arrow1 {
@@ -162,7 +162,7 @@ div {
 }
 
 .greeting__arrow2 {
-    bottom: 15%;
+    bottom: 20%;
     animation: darklight_arrow2 1.3s infinite;
 }
 
@@ -272,7 +272,7 @@ div {
     transition: all ease 2s;
 }
 
-.invitation__message, .invitation__calendar{
+.invitation__message, .invitation__calendar, .gallery__message, .location__message, .message__message{
     transform:translateY(-100px);
     opacity: 0;
     transition: all ease 2s;
@@ -405,6 +405,11 @@ div {
     width: 90%;
 }
 
+.gallery__message {
+    margin:5% 0 10% 0;
+    width: 100%;
+}
+
 .gallery__title {
     margin: 25% 0 7% 0;
 }
@@ -437,6 +442,11 @@ div {
     animation: darklight 2.5s infinite;
 }
 
+.blockquote {
+    font-size: 1rem;
+    font-family: 'GowunBatang-Regular';
+}
+
 @keyframes darklight{
     0% {
         opacity: 0.3;
@@ -454,7 +464,12 @@ div {
 
 /* location */
 .location__title{
-    margin:35% 0 15% 0;
+    margin:35% 0 5% 0;
+}
+
+.location__message {
+    margin: 5% 0 15% 0;
+    width: 100%;
 }
 
 .location__background {
@@ -570,18 +585,23 @@ div {
 
 /* message */
 .message__title {
-    margin: 35% 0 15% 0;
+    margin: 35% 0 0 0;
+}
+
+.message__message {
+    margin:5% 0 5% 0;
+    width: 100%;
 }
 .message__background {
     margin:0 auto 0 auto;
     width: 90%;
 }
 .message__btn--save {
-    width: 40%;
+    width: 30%;
     cursor:pointer;
 }
 .message__btn--more {
-    width: 40%;
+    width: 25%;
     cursor:pointer;
 }
 .message__btn--no {

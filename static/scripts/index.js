@@ -21,7 +21,7 @@ $(function(){
         gallery:true,
         item:1,
         loop:true,
-        thumbItem:10,
+        thumbItem:$('#imageGallery>li').length,
         enableDrag: true,
         currentPagerPosition:'right',
         onSliderLoad: function(el) {
@@ -313,8 +313,12 @@ $(function(){
     observerOne.observe(contactWife);
     let contactParents = document.querySelector(".contact__parents");
     observerOne.observe(contactParents);
+    let galleryMessage = document.querySelector(".gallery__message");
+    observerOne.observe(galleryMessage);
     let imageGallery = document.querySelector(".gallery__background");
     observerOne.observe(imageGallery);
+    let locationMessage = document.querySelector(".location__message");
+    observerOne.observe(locationMessage);
     let locationMap = document.querySelector(".location__map");
     observerOne.observe(locationMap);
     let locationSiteMap = document.querySelector(".location__site--map");
@@ -348,6 +352,8 @@ $(function(){
     observerTwo.observe(invitationCalendar);
     let accountBackground = document.querySelector(".account__background");
     observerTwo.observe(accountBackground);
+    let messageMessage = document.querySelector(".message__message");
+    observerTwo.observe(messageMessage);
     let messageInput = document.querySelector(".message__box");
     observerTwo.observe(messageInput);
      
