@@ -68,7 +68,7 @@ div {
 
 .greeting__title, .icon__call {
     width:100%;
-    animation:titleEvent 1s ease 1;
+    animation:titleEvent 2s ease 1;
 }
 
 .greeting__message>.greeting__title:active, .icon__call:active,
@@ -443,8 +443,16 @@ div {
 }
 
 .blockquote {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: 'GowunBatang-Regular';
+}
+
+.blockquote-footer {
+    margin: auto;
+}
+
+#message__list .card-body {
+    font-size: 0.8rem;
 }
 
 @keyframes darklight{
@@ -601,7 +609,7 @@ div {
     cursor:pointer;
 }
 .message__btn--more {
-    width: 25%;
+    width: 30%;
     cursor:pointer;
 }
 .message__btn--no {
