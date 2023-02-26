@@ -250,7 +250,7 @@ $(function(){
             cursor = documentSnapshots.docs[documentSnapshots.docs.length-1];
             if(cursor){
                 documentSnapshots.forEach((doc)=>{
-                    var html = messageBox(doc.id, doc.data().message, doc.data().name);
+                    var html = messageBox(doc.id, doc.data().message, doc.data().name, doc.data().time.toDate().toDateString());
                     $("#message__list").append(html);
                     mappingDeleteEvent(doc.id);
                 });
