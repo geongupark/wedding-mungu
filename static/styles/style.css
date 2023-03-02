@@ -520,12 +520,12 @@ div {
 
 .gumi__bus__description {
     width: 100%;
-    height: 0px;
+    height: 0vh;
     transition: all ease 0.5s;
 }
 
 .gumi__bus__view {
-    height: 450px;
+    height: 35vh;
 }
 
 /* account */
