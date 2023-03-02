@@ -49,6 +49,10 @@ $(function(){
         position: markerPosition
     });
     marker.setMap(map);
+
+    $(".gumi__bus__button").click(function(){
+        $(".gumi__bus__description").toggleClass("gumi__bus__view");
+    });
     
     // account modal, clipboard.min.js
     function modalToggle(modal){
